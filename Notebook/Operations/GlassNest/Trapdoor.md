@@ -1,7 +1,7 @@
 LOG: [[2024-07-05]]
 
 - [ ] New PyLab [[Click]] client control:  [priority:: high]
-	- Launch [[Napari]]
+	- Launch [[Widefield Setup/Python/Napari]]
 		- args: widget-options
 			1. widefield widget
 			2. pupil camera widget

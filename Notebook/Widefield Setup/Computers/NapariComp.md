@@ -7,6 +7,6 @@ aliases:
 software:
   - "[[MicroManager]]"
   - "[[PycroManager]]"
-  - "[[Napari]]"
+  - "[[Widefield Setup/Python/Napari]]"
 ---
 

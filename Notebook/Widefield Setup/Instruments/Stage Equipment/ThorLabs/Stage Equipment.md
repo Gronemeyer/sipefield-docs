@@ -2,7 +2,7 @@
 
 PLS-XY Stage Motor
 
-CSA1500 Up Down
+PLSZ CSA1500 Up Down
 
 XT95P3
 

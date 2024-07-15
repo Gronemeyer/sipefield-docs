@@ -17,7 +17,7 @@
 
 # [[Current Setup.canvas|Current Setup]]
 
-
+[SEMANTIC VERSIONING GUIDELINES](https://semver.org/)
 
 # Take Snapshot in Matlab wfield
 1. Stop preview
