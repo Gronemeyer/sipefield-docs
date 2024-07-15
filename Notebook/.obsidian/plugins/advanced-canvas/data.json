@@ -5,7 +5,7 @@
   "defaultTextNodeHeight": 60,
   "defaultFileNodeWidth": 400,
   "defaultFileNodeHeight": 400,
-  "performanceOptimizationEnabled": true,
+  "performanceOptimizationEnabled": false,
   "nodeStylingFeatureEnabled": true,
   "customNodeStyleAttributes": [],
   "defaultTextNodeStyleAttributes": {},

@@ -1,8 +1,4 @@
 
-
-
-
-
 | Python Package                                                                                   | Description                               |
 | ------------------------------------------------------------------------------------------------ | ----------------------------------------- |
 | [Lightlab](https://lightlab.readthedocs.io/en/master/_static/gettingStarted/engineersGuide.html) |                                           |
