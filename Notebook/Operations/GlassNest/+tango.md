@@ -15,6 +15,6 @@ Goals:
 
 ## Computers:
 
-1. [[NapariComp]] and [[MicroManager]]
-2. [[Sol]]
-3. [[Psyche]]
+1. [[Widefield Computer]] and [[MicroManager]]
+2. [[Pupil Computer]]
+3. [[Vis Computer]]

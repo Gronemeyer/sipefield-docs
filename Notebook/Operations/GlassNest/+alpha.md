@@ -11,7 +11,7 @@ canvas: "[[+alpha.canvas|+alpha]]"
 **Build PyLab SCADA package for controlling wfield instruments**
 
 # Tasks
-- [ ] Install PyControl [[NapariComp]]  [priority:: medium]
+- [ ] Install PyControl [[Widefield Computer]]  [priority:: medium]
 
 # Archive
 

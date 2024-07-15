@@ -1,6 +1,7 @@
 ---
 website: https://micro-manager.org/
 ---
+![Micro-Manage Block Diagram](https://micro-manager.org/media/Block_diagram.gif "Micro-Manage Block Diagram")
 
 
 [Download](https://micro-manager.org/Download_Micro-Manager_Latest_Release) ^963752

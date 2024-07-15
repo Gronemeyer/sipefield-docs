@@ -23,35 +23,22 @@
             }
           },
           {
-            "id": "5f0046bb42c2cbfe",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "LOG/2024-06-20.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "5fd4325d17542dda",
+            "id": "c2557cc49d8d808c",
             "type": "leaf",
             "state": {
               "type": "canvas",
               "state": {
                 "file": "Widefield Setup/Current Setup.canvas",
                 "viewState": {
-                  "x": -730,
-                  "y": 200,
-                  "zoom": -4
+                  "x": -491.29098359462523,
+                  "y": 2842.9331067844755,
+                  "zoom": -1.4627100929030172
                 }
               }
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -117,7 +104,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Widefield Setup/Instruments/Lenses/Nikon AF-S Nikkor 50mm.md",
+                "file": "Widefield Setup/Current Setup.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -134,7 +121,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Widefield Setup/Instruments/Lenses/Nikon AF-S Nikkor 50mm.md",
+                "file": "Widefield Setup/Current Setup.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -157,7 +144,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Widefield Setup/Instruments/Lenses/Nikon AF-S Nikkor 50mm.md"
+                "file": "Widefield Setup/Current Setup.canvas"
               }
             }
           },
@@ -191,54 +178,54 @@
       "workspaces:Manage workspace layouts": false
     }
   },
-  "active": "5fd4325d17542dda",
+  "active": "c2557cc49d8d808c",
   "lastOpenFiles": [
-    "Widefield Setup/napari-mesoscope.md",
-    "Widefield Setup/sipefield environment setup.md",
+    "%resources/Quick Reference.md",
     "Widefield Setup/Current Setup.canvas",
+    "Operations/napari-mesoscope.md",
+    "Widefield Setup/docs/References.md",
+    "Widefield Setup/docs/Hardware-triggering.md",
+    "Widefield Setup/docs/Background Information.md",
+    "Widefield Setup/Computers/Vis Computer.md",
+    "Widefield Setup/Computers/Pupil Computer.md",
+    "Widefield Setup/Instruments/Rotary Encoder.md",
+    "Widefield Setup/Instruments/Screens/Vis Stim Screen.md",
+    "Widefield Setup/Instruments/Cameras/Thorlabs CS165 MU.md",
+    "Widefield Setup/%attachments/7ys5bmri.bmp",
+    "Widefield Setup/%attachments/kndf4nn8.bmp",
+    "Widefield Setup/%attachments/sklwzlof.bmp",
+    "Widefield Setup/%attachments/c8ebkbi3.bmp",
+    "Widefield Setup/%attachments/smigs8jf.bmp",
+    "Widefield Setup/Python/Python Packages/PsychoPy.md",
+    "Widefield Setup/%attachments/z28z2tun.bmp",
+    "Widefield Setup/%attachments/67uzdgai.bmp",
+    "Widefield Setup/%attachments/Installation — PsychoPy v2024.1.5.url",
+    "Widefield Setup/%attachments/dml2nf6k.bmp",
+    "Widefield Setup/%attachments",
+    "Widefield Setup/Software/MicroManager.md",
+    "LOG/2024-06-20.md",
+    "Widefield Setup/docs/sipefield environment setup.md",
     "Widefield Setup/Software/Napari.md",
     "Widefield Setup/Python/Napari.md",
     "Widefield Setup/Python/Python Scripts/=scripts.md",
     "Widefield Setup/Python/Python Packages",
     "Widefield Setup/Python/Python Scripts/ThorLabs-continuous-capture.md",
-    "Widefield Setup/Instruments/Cameras/Thorlabs CS165 MU.md",
     "Widefield Setup/Python/Python Scripts",
     "Widefield Setup/Python/Python Packages/Potential Packages.md",
     "Widefield Setup/Python/Python Packages/PycroManager.md",
     "Widefield Setup/Python/PyTango.md",
     "Widefield Setup/Python/Python Packages/pymmcore-plus.md",
     "Widefield Setup/Instruments/Stage Equipment/ThorLabs/Stage Equipment.md",
-    "%resources/Quick Reference.md",
-    "Widefield Setup/Python/Python Packages/PsychoPy.md",
     "Widefield Setup/Python/Python Packages/PyControl.md",
     "Widefield Setup/Python/Python Packages/PyHub.md",
-    "Widefield Setup/Python/Python Packages/PyLab.md",
-    "Widefield Setup/Instruments/Cameras/Dhyana 400BSI V2.md",
     "Widefield Setup/Instruments/Control Boards/DAQ and Teensy diagram.bmp",
-    "Widefield Setup/Instruments/Control Boards/Arduino.md",
-    "Widefield Setup/Instruments/Control Boards/Teensy.md",
     "Widefield Setup/Instruments/Control Boards/NI-DAQ/%attachments/NI USB-6001_deprecatedDriver.png",
-    "Widefield Setup/Instruments/Control Boards/NI-DAQ/%attachments/NI USB-6001 Pinout.png",
-    "Widefield Setup/Software/MicroManager.md",
-    "LOG/2024-07-11.md",
-    "Widefield Setup/Computers/Sol.md",
-    "Widefield Setup/Computers/Psyche.md",
-    "Widefield Setup/Computers/NapariComp.md",
     "Widefield Setup/Instruments/Screens",
     "Widefield Setup/docs",
-    "Widefield Setup/Instruments/Cameras/%attachments/Dhyana 400BSI V2 dimensions.png",
     "Widefield Setup/Instruments/Cameras/%attachments",
     "Widefield Setup/Computers/Psyche",
     "Widefield Setup/Computers",
     "Widefield Setup/Instruments/Stage Equipment",
-    "Widefield Setup/Instruments/Control Boards",
-    "Widefield Setup/Instruments/Cameras",
-    "Widefield Setup/Software/%attachments/MicroManager Config File Setup.png",
-    "Widefield Setup/Software/%attachments/MicroManager Config Setup.png",
-    "Widefield Setup/Instruments/Lenses/%attachments/Pasted image 20240618170337.png",
-    "Widefield Setup/Instruments/Lenses/%attachments/Nikon AF-S Nikkor 105mm Optics.png",
-    "Widefield Setup/Instruments/Lenses/%attachments/Nikon AF-S Nikkor 50mm Optics.png",
-    "%resources/%attachments/1_FCUanQvt8MxxjhaF_UDY-A.webp",
     "Operations/GlassNest/+alpha.canvas",
     "LOG/Untitled.canvas"
   ]
