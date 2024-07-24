@@ -23,12 +23,12 @@
             }
           },
           {
-            "id": "36a91098f91ff65b",
+            "id": "4fbe61f08cff8494",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Widefield Setup/Instruments/Lenses/Nikon AF-S Nikkor 50mm.md",
+                "file": "Widefield Setup/Python/Python Packages/pymmcore-plus.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -36,17 +36,15 @@
             }
           },
           {
-            "id": "6edbe19793fa0504",
+            "id": "283cea1b77e742db",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "Widefield Setup/Current Setup.canvas",
-                "viewState": {
-                  "x": -408.91366588356885,
-                  "y": -1212.7248797048474,
-                  "zoom": -1.1631144835685203
-                }
+                "file": "Widefield Setup/Python/Python Scripts/NIDAQ ai-di-do continuous.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
               }
             }
           }
@@ -101,7 +99,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300.5
+    "width": 200
   },
   "right": {
     "id": "f005a1f147e335e8",
@@ -117,7 +115,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Widefield Setup/Current Setup.canvas",
+                "file": "Widefield Setup/Python/Python Scripts/NIDAQ ai-di-do continuous.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -134,7 +132,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Widefield Setup/Current Setup.canvas",
+                "file": "Widefield Setup/Python/Python Scripts/NIDAQ ai-di-do continuous.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -157,7 +155,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Widefield Setup/Current Setup.canvas"
+                "file": "Widefield Setup/Python/Python Scripts/NIDAQ ai-di-do continuous.md"
               }
             }
           },
@@ -191,49 +189,49 @@
       "workspaces:Manage workspace layouts": false
     }
   },
-  "active": "6edbe19793fa0504",
+  "active": "283cea1b77e742db",
   "lastOpenFiles": [
-    "Widefield Setup/Instruments/Control Boards/NI-DAQ/NI USB-6001.md",
-    "Widefield Setup/Current Setup.canvas",
-    "Widefield Setup/Instruments/Cameras/Dhyana 400BSI V2.md",
-    "Widefield Setup/Software/MicroManager.md",
-    "Widefield Setup/docs/sipefield environment setup.md",
-    "Widefield Setup/Python/Python Packages/Potential Packages.md",
-    "Widefield Setup/Instruments/Control Boards/DAQ and Teensy diagram.bmp",
-    "Widefield Setup/Instruments/Control Boards/Arduino.md",
-    "Widefield Setup/Instruments/Cameras/Thorlabs CS165 MU.md",
-    "Widefield Setup/Computers/Vis Computer.md",
-    "Widefield Setup/Python/Python Packages/PsychoPy.md",
-    "Widefield Setup/Computers/Pupil Computer.md",
-    "Operations/GlassNest/+alpha.md",
-    "Widefield Setup/Instruments/Lenses/Nikon AF-S Nikkor 105mm.md",
-    "Widefield Setup/%attachments/Pasted image 20240715094939.png",
-    "Widefield Setup/Instruments/Lenses/%attachments/Nikon AF-S Nikkor 105mm Optics.png",
-    "Widefield Setup/Instruments/Lenses/%attachments/Nikon AF-S Nikkor 50mm Optics.png",
-    "Widefield Setup/Instruments/Lenses/Nikon AF-S Nikkor 50mm.md",
-    "Widefield Setup/%attachments/Pasted image 20240715094154.png",
-    "%resources/Quick Reference.md",
+    "Operations/LLM fintetuning.md",
     "Operations/napari-mesoscope.md",
-    "Widefield Setup/docs/References.md",
-    "Widefield Setup/docs/Hardware-triggering.md",
+    "Widefield Setup/Computers/Pupil Computer.md",
+    "Widefield Setup/Computers/Vis Computer.md",
+    "Widefield Setup/Computers/Widefield Computer.md",
     "Widefield Setup/docs/Background Information.md",
+    "Widefield Setup/docs/Hardware-triggering with Micro-Manager a case study.md",
+    "Widefield Setup/docs/sipefield environment setup.md",
+    "Widefield Setup/Python/Python Packages/pymmcore-plus.md",
+    "Widefield Setup/docs/References.md",
+    "%resources/Quick Reference.md",
+    "Widefield Setup/Current Setup.canvas",
+    "Widefield Setup/Python/Python Scripts/NIDAQ ai-di-do continuous.md",
+    "Widefield Setup/Python/Python Scripts/ThorLabs-continuous-capture.md",
+    "Widefield Setup/Instruments/Cameras/Dhyana 400BSI V2.md",
+    "Widefield Setup/Python/Python Packages/PycroManager.md",
+    "Widefield Setup/Python/Napari.md",
+    "Widefield Setup/Python/PyTorch.md",
+    "Widefield Setup/Instruments/Cameras/%attachments/Dhyana 400BSI V2 pic.png",
+    "Widefield Setup/Instruments/Cameras/%attachments/Dhyana technical specifications.png",
+    "Widefield Setup/Software/AutoHotkey.md",
+    "Widefield Setup/%attachments/Pasted image 20240715094939.png",
+    "Widefield Setup/%attachments/Pasted image 20240715094154.png",
     "Widefield Setup/Instruments/Rotary Encoder.md",
     "Widefield Setup/Instruments/Screens/Vis Stim Screen.md",
+    "Widefield Setup/Instruments/Cameras/Thorlabs CS165 MU.md",
     "Widefield Setup/%attachments/7ys5bmri.bmp",
     "Widefield Setup/%attachments/kndf4nn8.bmp",
     "Widefield Setup/%attachments/sklwzlof.bmp",
     "Widefield Setup/%attachments/c8ebkbi3.bmp",
     "Widefield Setup/%attachments/smigs8jf.bmp",
+    "Widefield Setup/Python/Python Packages/PsychoPy.md",
+    "Widefield Setup/%attachments/z28z2tun.bmp",
     "Widefield Setup/%attachments/Installation — PsychoPy v2024.1.5.url",
     "Widefield Setup/%attachments",
+    "Widefield Setup/Software/MicroManager.md",
     "LOG/2024-06-20.md",
     "Widefield Setup/Software/Napari.md",
-    "Widefield Setup/Python/Napari.md",
     "Widefield Setup/Python/Python Scripts/=scripts.md",
     "Widefield Setup/Python/Python Packages",
-    "Widefield Setup/Python/Python Scripts/ThorLabs-continuous-capture.md",
     "Widefield Setup/Python/Python Scripts",
-    "Widefield Setup/Python/Python Packages/PycroManager.md",
     "Widefield Setup/Instruments/Screens",
     "Widefield Setup/docs",
     "Widefield Setup/Instruments/Cameras/%attachments",

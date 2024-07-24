@@ -96,40 +96,14 @@
       "label": "PsychoPy Computer"
     },
     {
-      "id": "9624d33ca3794dbe",
-      "type": "text",
-      "text": "# Open-Source Image Acquistion Python Stack",
-      "styleAttributes": {
-        "textAlign": "center"
-      },
-      "x": -418,
-      "y": 880,
-      "width": 860,
-      "height": 80
-    },
-    {
-      "id": "30fd16d2c84368e4",
-      "type": "text",
-      "text": "# pymmcore-plus",
-      "styleAttributes": {
-        "textAlign": "center"
-      },
-      "x": -468,
-      "y": 1160,
-      "width": 320,
-      "height": 60
-    },
-    {
-      "id": "843bf295a1f35c0e",
-      "type": "text",
-      "text": "# Napari",
-      "styleAttributes": {
-        "textAlign": "center"
-      },
-      "x": 220,
-      "y": 1160,
-      "width": 260,
-      "height": 60
+      "id": "5e0c0602970e0313",
+      "type": "link",
+      "url": "https://micro-manager.org/",
+      "styleAttributes": {},
+      "x": -425,
+      "y": -120,
+      "width": 1336,
+      "height": 720
     },
     {
       "id": "27bda0b2c0178022",
@@ -172,6 +146,134 @@
       "y": -2328,
       "width": 407,
       "height": 488
+    },
+    {
+      "id": "9624d33ca3794dbe",
+      "type": "text",
+      "text": "# Open-Source Image Acquistion Python Stack",
+      "styleAttributes": {
+        "textAlign": "center"
+      },
+      "x": -418,
+      "y": 880,
+      "width": 860,
+      "height": 80
+    },
+    {
+      "id": "30fd16d2c84368e4",
+      "type": "text",
+      "text": "# pymmcore-plus",
+      "styleAttributes": {
+        "textAlign": "center"
+      },
+      "x": -468,
+      "y": 1160,
+      "width": 320,
+      "height": 60
+    },
+    {
+      "id": "843bf295a1f35c0e",
+      "type": "text",
+      "text": "# Napari",
+      "styleAttributes": {
+        "textAlign": "center"
+      },
+      "x": 220,
+      "y": 1160,
+      "width": 260,
+      "height": 60
+    },
+    {
+      "id": "5cd3bf7ffb47a062",
+      "type": "file",
+      "file": "Widefield Setup/Instruments/Cameras/Dhyana 400BSI V2.md",
+      "styleAttributes": {},
+      "x": -878,
+      "y": -1622,
+      "width": 400,
+      "height": 534
+    },
+    {
+      "id": "907c78178d6d8b75",
+      "type": "file",
+      "file": "Widefield Setup/Python/Python Packages/pymmcore-plus.md",
+      "styleAttributes": {},
+      "x": -296,
+      "y": -1474,
+      "width": 607,
+      "height": 499
+    },
+    {
+      "id": "4f736626ab7d4537",
+      "type": "file",
+      "file": "Widefield Setup/%attachments/7ys5bmri.bmp",
+      "styleAttributes": {},
+      "x": -425,
+      "y": -1903,
+      "width": 524,
+      "height": 339
+    },
+    {
+      "id": "a2a872ba86de2bf7",
+      "type": "text",
+      "text": "```python\nimport pymmcore_plus\n\nMM_CONFIG = r'C:/dev/DyhanaCam.cfg'\n\nmmc = CMMCorePlus.instance()\nmmc.loadSystemConfiguration(MM_CONFIG)\n```\n\n```python\nimport nidaqmx #package for NIDAQ in Python\n\ndef start_acquisition(viewer, progress_bar):\n    with NIDAQ() as nidaq:\n        nidaq.trigger(True)\n\n    mmc.startContinuousSequenceAcquisition(0)\n```",
+      "styleAttributes": {},
+      "x": 1400,
+      "y": -1689,
+      "width": 440,
+      "height": 440
+    },
+    {
+      "id": "07b243f28d51d896",
+      "type": "text",
+      "text": "Widefield Camera",
+      "styleAttributes": {
+        "textAlign": "center"
+      },
+      "x": 1440,
+      "y": -2021,
+      "width": 213,
+      "height": 50
+    },
+    {
+      "id": "11aab682b39406e9",
+      "type": "text",
+      "text": "```python\n\nimport napari\n# Function to start Napari with the custom widget\ndef start_napari():\n    print(\"launching interface...\")\n    viewer = Viewer()\n\n    # Activate live view\n    viewer.window.add_plugin_dock_widget('napari-micromanager')\n    viewer.window.add_dock_widget(MyWidget(viewer), area='bottom')\n\n    run()\n  \n# Launch Napari with the custom widget\nif __name__ == \"__main__\":\n    print(\"Starting Sipefield Napari Acquisition Interface...\")\n    start_napari()\n```",
+      "styleAttributes": {},
+      "x": 1900,
+      "y": -1701,
+      "width": 600,
+      "height": 464
+    },
+    {
+      "id": "68640f4c2b304e9c",
+      "type": "text",
+      "text": "# MicroManager",
+      "styleAttributes": {},
+      "x": -700,
+      "y": -240,
+      "width": 360,
+      "height": 80
+    },
+    {
+      "id": "8953d2e30d07944b",
+      "type": "text",
+      "text": "https://micro-manager.org/",
+      "styleAttributes": {},
+      "x": -814,
+      "y": 640,
+      "width": 372,
+      "height": 50
+    },
+    {
+      "id": "911939acba4ca3fd",
+      "type": "file",
+      "file": "Widefield Setup/%attachments/7ys5bmri.bmp",
+      "styleAttributes": {},
+      "x": 1953,
+      "y": -2313,
+      "width": 825,
+      "height": 534
     },
     {
       "id": "caec28ca4a016131",
@@ -246,6 +348,16 @@
       "height": 178
     },
     {
+      "id": "b40ba4cb2e7300f7",
+      "type": "file",
+      "file": "Widefield Setup/Instruments/Control Boards/DAQ and Teensy diagram.bmp",
+      "styleAttributes": {},
+      "x": 3,
+      "y": 2415,
+      "width": 399,
+      "height": 234
+    },
+    {
       "id": "869bd0f5f0ad59cd",
       "type": "text",
       "text": "NIDAQ/Dev3",
@@ -257,26 +369,6 @@
       "y": 2617,
       "width": 227,
       "height": 180
-    },
-    {
-      "id": "e3c6f86e3bc990ab",
-      "type": "file",
-      "file": "Widefield Setup/Instruments/Cameras/Thorlabs CS165 MU.md",
-      "styleAttributes": {},
-      "x": -372,
-      "y": 4440,
-      "width": 341,
-      "height": 400
-    },
-    {
-      "id": "1dcc51966c517939",
-      "type": "file",
-      "file": "Widefield Setup/Instruments/Cameras/Dhyana 400BSI V2.md",
-      "styleAttributes": {},
-      "x": 3,
-      "y": 3119,
-      "width": 400,
-      "height": 520
     },
     {
       "id": "0557d2f4b6ec4aa9",
@@ -292,46 +384,14 @@
       "height": 170
     },
     {
-      "id": "cc30e9f5f3d43362",
+      "id": "e3c6f86e3bc990ab",
       "type": "file",
-      "file": "Widefield Setup/%attachments/67uzdgai.bmp",
+      "file": "Widefield Setup/Instruments/Cameras/Thorlabs CS165 MU.md",
       "styleAttributes": {},
-      "x": 693,
-      "y": 3389,
-      "width": 142,
-      "height": 142
-    },
-    {
-      "id": "da94fce134351662",
-      "type": "link",
-      "url": "https://psychopy.org/about/overview.html",
-      "styleAttributes": {},
-      "x": 873,
-      "y": 3249,
-      "width": 728,
-      "height": 482
-    },
-    {
-      "id": "1e21ccef4734c09d",
-      "type": "file",
-      "file": "Widefield Setup/Instruments/Lenses/Nikon AF-S Nikkor 105mm.md",
-      "styleAttributes": {},
-      "x": 3,
-      "y": 3634,
-      "width": 400,
-      "height": 380
-    },
-    {
-      "id": "b9061f040f6ee905",
-      "type": "text",
-      "text": "PsychoPy",
-      "styleAttributes": {
-        "textAlign": "center"
-      },
-      "x": 693,
-      "y": 3531,
-      "width": 142,
-      "height": 64
+      "x": -372,
+      "y": 4440,
+      "width": 341,
+      "height": 400
     },
     {
       "id": "49e9fda2714c4dc8",
@@ -356,16 +416,6 @@
       "height": 396
     },
     {
-      "id": "b40ba4cb2e7300f7",
-      "type": "file",
-      "file": "Widefield Setup/Instruments/Control Boards/DAQ and Teensy diagram.bmp",
-      "styleAttributes": {},
-      "x": 3,
-      "y": 2415,
-      "width": 399,
-      "height": 234
-    },
-    {
       "id": "56c9699c9173749b",
       "type": "text",
       "text": "Rotary Encoder",
@@ -386,106 +436,56 @@
       "height": 192
     },
     {
-      "id": "5cd3bf7ffb47a062",
+      "id": "bff917c1246c22fb",
+      "type": "text",
+      "text": "- Logic Low = 0 V to +0.8 V\n    \n- Logic High = +2 V to +5 V",
+      "styleAttributes": {},
+      "x": 350,
+      "y": 2707,
+      "width": 260,
+      "height": 200
+    },
+    {
+      "id": "1dcc51966c517939",
       "type": "file",
       "file": "Widefield Setup/Instruments/Cameras/Dhyana 400BSI V2.md",
       "styleAttributes": {},
-      "x": -878,
-      "y": -1622,
+      "x": 3,
+      "y": 3119,
       "width": 400,
-      "height": 534
+      "height": 520
     },
     {
-      "id": "907c78178d6d8b75",
+      "id": "1e21ccef4734c09d",
       "type": "file",
-      "file": "Widefield Setup/Python/Python Packages/pymmcore-plus.md",
+      "file": "Widefield Setup/Instruments/Lenses/Nikon AF-S Nikkor 105mm.md",
       "styleAttributes": {},
-      "x": -296,
-      "y": -1474,
-      "width": 607,
-      "height": 499
+      "x": 3,
+      "y": 3634,
+      "width": 400,
+      "height": 380
     },
     {
-      "id": "4f736626ab7d4537",
+      "id": "cc30e9f5f3d43362",
       "type": "file",
-      "file": "Widefield Setup/%attachments/7ys5bmri.bmp",
+      "file": "Widefield Setup/%attachments/67uzdgai.bmp",
       "styleAttributes": {},
-      "x": -425,
-      "y": -1903,
-      "width": 524,
-      "height": 339
+      "x": 693,
+      "y": 3389,
+      "width": 142,
+      "height": 142
     },
     {
-      "id": "a2a872ba86de2bf7",
+      "id": "b9061f040f6ee905",
       "type": "text",
-      "text": "```python\nimport pymmcore_plus\n\nMM_CONFIG = r'C:/dev/DyhanaCam.cfg'\n\nmmc = CMMCorePlus.instance()\nmmc.loadSystemConfiguration(MM_CONFIG)\n```\n\n```python\nimport nidaqmx #package for NIDAQ in Python\n\ndef start_acquisition(viewer, progress_bar):\n    with NIDAQ() as nidaq:\n        nidaq.trigger(True)\n\n    mmc.startContinuousSequenceAcquisition(0)\n```",
-      "styleAttributes": {},
-      "x": 1400,
-      "y": -1689,
-      "width": 440,
-      "height": 440
-    },
-    {
-      "id": "07b243f28d51d896",
-      "type": "text",
-      "text": "Widefield Camera",
+      "text": "PsychoPy",
       "styleAttributes": {
         "textAlign": "center"
       },
-      "x": 1440,
-      "y": -2021,
-      "width": 213,
-      "height": 50
-    },
-    {
-      "id": "11aab682b39406e9",
-      "type": "text",
-      "text": "```python\n\nimport napari\n# Function to start Napari with the custom widget\ndef start_napari():\n    print(\"launching interface...\")\n    viewer = Viewer()\n\n    # Activate live view\n    viewer.window.add_plugin_dock_widget('napari-micromanager')\n    viewer.window.add_dock_widget(MyWidget(viewer), area='bottom')\n\n    run()\n  \n# Launch Napari with the custom widget\nif __name__ == \"__main__\":\n    print(\"Starting Sipefield Napari Acquisition Interface...\")\n    start_napari()\n```",
-      "styleAttributes": {},
-      "x": 1900,
-      "y": -1701,
-      "width": 600,
-      "height": 464
-    },
-    {
-      "id": "5e0c0602970e0313",
-      "type": "link",
-      "url": "https://micro-manager.org/",
-      "styleAttributes": {},
-      "x": -425,
-      "y": -120,
-      "width": 1336,
-      "height": 720
-    },
-    {
-      "id": "68640f4c2b304e9c",
-      "type": "text",
-      "text": "# MicroManager",
-      "styleAttributes": {},
-      "x": -700,
-      "y": -240,
-      "width": 360,
-      "height": 80
-    },
-    {
-      "id": "8953d2e30d07944b",
-      "type": "text",
-      "text": "https://micro-manager.org/",
-      "styleAttributes": {},
-      "x": -814,
-      "y": 640,
-      "width": 372,
-      "height": 50
-    },
-    {
-      "id": "0f0e471866c62261",
-      "type": "link",
-      "url": "https://opticexplorer.sharedigm.com/#home",
-      "styleAttributes": {},
-      "x": -3120,
-      "y": 451,
-      "width": 1520,
-      "height": 988
+      "x": 693,
+      "y": 3531,
+      "width": 142,
+      "height": 64
     },
     {
       "id": "56c7ff2d6c84481d",
@@ -524,14 +524,24 @@
       "height": 520
     },
     {
-      "id": "911939acba4ca3fd",
-      "type": "file",
-      "file": "Widefield Setup/%attachments/7ys5bmri.bmp",
+      "id": "da94fce134351662",
+      "type": "link",
+      "url": "https://psychopy.org/about/overview.html",
       "styleAttributes": {},
-      "x": 1953,
-      "y": -2313,
-      "width": 825,
-      "height": 534
+      "x": 873,
+      "y": 3249,
+      "width": 728,
+      "height": 482
+    },
+    {
+      "id": "0f0e471866c62261",
+      "type": "link",
+      "url": "https://opticexplorer.sharedigm.com/#home",
+      "styleAttributes": {},
+      "x": -3120,
+      "y": 451,
+      "width": 1520,
+      "height": 988
     }
   ],
   "edges": [

@@ -1,8 +1,10 @@
-![[Dhyana 400BSI V2 dimensions.png]]
+![[Dhyana 400BSI V2 pic.png]]
 
 [Trigger Instructions](https://www.tucsen.com/uploads/Camera-External-Trigger-Instructions.pdf)
 
 [Specifications]([BSI-sCMOS-Camera-Dhyana-400BSIV2-Tucsen.pdf](file:///C:/Users/SIPE_LAB/Desktop/desktop/BSI-sCMOS-Camera-Dhyana-400BSIV2-Tucsen.pdf))
+![[Dhyana technical specifications.png]]
+![[Dhyana 400BSI V2 dimensions.png]]
 
 [Drivers and Software plugins](https://www.tucsen.com/Home/Product/download/dataid/19/id/27.html) ^65d0c1
 
