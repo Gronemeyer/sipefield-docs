@@ -1,5 +1,8 @@
-https://github.com/nimwegenLab/MiM_NikonTi/blob/master/Docs/NikonTi_hardware_triggering.md
-
+---
+devices:
+  - "[[Arduino]]"
+website: https://github.com/nimwegenLab/MiM_NikonTi/blob/master/Docs/NikonTi_hardware_triggering.md
+---
 Thomas Julou & Guillaume Witz (_Biozentrum, Basel University_) February 2016
 ## Motivation
 
@@ -12,7 +15,7 @@ Why you might want to use hardware-triggering to acquire image series is nicely 
 > 
 > Synchronization between the camera and the other devices is achieved by routing TTL (Transistor-Transistor Logic) pulses over signal cables. In the configuration currently supported by μManager, the camera, operated in sequence acquisition mode, acts as the timing-generating device, sending out TTL pulses at each exposure. The pulses are sent (typically via BNC cable) to a sequencing device, which may be standalone or built into a stage or illumination controller. Upon each pulse, the sequencing device advances the hardware to the correct state for the next exposure, based on a sequence of positions or illumination settings uploaded ahead of time.
 
-Another (more basic bust still useful) use of hardware trigeering is to ensure that the sample is exposed only while the camera is exposing, in order to minimize photodamage. This is particularly relevant with short exposure and high illumination intensity where the communication time can be on the order of the exposure time (effectively doubling photodamage).
+Another (more basic bust still useful) use of hardware triggering is to ensure that the sample is exposed only while the camera is exposing, in order to minimize photodamage. This is particularly relevant with short exposure and high illumination intensity where the communication time can be on the order of the exposure time (effectively doubling photodamage).
 
 Here we explain (i) how an Arduino board can be used to control with hardware triggering devices featuring TTL inputs, (ii) which external triggers of the camera we use in order to acquire images only once the setup has reached the expected state, and (iii) how to make several TTL-controlled light sources hardware-triggerable thanks to a custom Arduino extension shield. But first, we guide you through a simple test experiment to figure out the speed difference the between "capture" and "streaming" (aka "sequence") modes of your camera.
 

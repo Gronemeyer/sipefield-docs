@@ -1,3 +1,12 @@
+[[Arduino]]
+[[MicroManager#^cf4e08]]
+
+[[Hardware-triggering with Micro-Manager a case study]]
+[[LLM fintetuning]]
+[[Dhyana 400BSI V2#^fe9623]]
+
+
+
 
 > [!LIST] Tasks
 > ```tasks

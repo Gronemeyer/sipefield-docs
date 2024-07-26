@@ -7,6 +7,8 @@
     "canvas": "text",
     "controls": "multitext",
     "devices": "multitext",
-    "software": "multitext"
+    "software": "multitext",
+    "docs": "multitext",
+    "relatives": "multitext"
   }
 }

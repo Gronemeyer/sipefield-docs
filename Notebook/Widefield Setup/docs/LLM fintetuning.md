@@ -7,21 +7,21 @@ I am setting up a control system for a widefield macroscope. The setup has three
 
 Here is a table summarizing the setup:
 
-|**Component**|**Device**|**Port/Line**|**Function**|
-|---|---|---|---|
-|Master NIDAQ|Dev1|port1/line0|Output signal to Teensy for Violet LED|
-|Master NIDAQ|Dev1|port1/line1|Output signal to Teensy for Blue LED|
-|Master NIDAQ|Dev1|port1/line2|Output signal to Teensy for Strobe|
-|Master NIDAQ|Dev1|AI1|Analog input from Teensy (LED status)|
-|Master NIDAQ|Dev1|AI2|Analog input from Teensy (LED status)|
-|Master NIDAQ|Dev1|port0/line0|Digital I/O for communication with Dev2|
-|Master NIDAQ|Dev1|port0/line1|Digital I/O for communication with Dev3|
-|Slave NIDAQ|Dev2|port0/line0|Digital I/O for communication with Dev1|
-|Slave NIDAQ|Dev2|port0/line1|Digital I/O for communication with Dev1|
-|Slave NIDAQ|Dev3|port0/line0|Digital I/O for communication with Dev1|
-|Slave NIDAQ|Dev3|port0/line1|Digital I/O for communication with Dev1|
-|Teensy Board|-|-|Controls LEDs based on input from Dev1|
-|Camera|-|-|Provides exposure/frame intervals to Teensy|
+| **Component** | **Device** | **Port/Line** | **Function**                                |
+| ------------- | ---------- | ------------- | ------------------------------------------- |
+| Master NIDAQ  | Dev1       | port1/line0   | Output signal to Teensy for Violet LED      |
+| Master NIDAQ  | Dev1       | port1/line1   | Output signal to Teensy for Blue LED        |
+| Master NIDAQ  | Dev1       | port1/line2   | Output signal to Teensy for Strobe          |
+| Master NIDAQ  | Dev1       | AI1           | Analog input from Teensy (LED status)       |
+| Master NIDAQ  | Dev1       | AI2           | Analog input from Teensy (LED status)       |
+| Master NIDAQ  | Dev1       | port0/line0   | Digital I/O for communication with Dev2     |
+| Master NIDAQ  | Dev1       | port0/line1   | Digital I/O for communication with Dev3     |
+| Slave NIDAQ   | Dev2       | port0/line0   | Digital I/O for communication with Dev1     |
+| Slave NIDAQ   | Dev2       | port0/line1   | Digital I/O for communication with Dev1     |
+| Slave NIDAQ   | Dev3       | port0/line0   | Digital I/O for communication with Dev1     |
+| Slave NIDAQ   | Dev3       | port0/line1   | Digital I/O for communication with Dev1     |
+| Teensy Board  | -          | -             | Controls LEDs based on input from Dev1      |
+| Camera        | -          | -             | Provides exposure/frame intervals to Teensy |
 
 | **Windows Computer** | **Devices**                           | **Software**                               |
 | -------------------- | ------------------------------------- | ------------------------------------------ |

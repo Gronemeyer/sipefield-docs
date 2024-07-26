@@ -1,6 +1,6 @@
 ![[Dhyana 400BSI V2 dimensions.png]]
 
-[Trigger Instructions](https://www.tucsen.com/uploads/Camera-External-Trigger-Instructions.pdf)
+[Trigger Instructions](https://www.tucsen.com/uploads/Camera-External-Trigger-Instructions.pdf) ^fe9623
 - 3.4.1 Capture Mode:
 	- Camera capture modes are divided into the following 2 categories:
 		1. Sequence mode (stream mode): it is used to capture continuous image data.

@@ -41,15 +41,55 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Widefield Setup/Python/Python Scripts/NIDAQ ai-di-do continuous.md",
+                "file": "Widefield Setup/Instruments/Cameras/Dhyana 400BSI V2.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "67dec49a2663717f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Widefield Setup/Software/MicroManager.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f226ea6c538903db",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "Widefield Setup/Current Setup.canvas",
+                "viewState": {
+                  "x": -2147.2509880684947,
+                  "y": 2199.947649563136,
+                  "zoom": -1.1368435260455954
+                }
+              }
+            }
+          },
+          {
+            "id": "c98b875b601294c0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Widefield Setup/docs/sipefield environment setup.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -115,7 +155,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Widefield Setup/Python/Python Scripts/NIDAQ ai-di-do continuous.md",
+                "file": "%resources/Quick Reference.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -132,7 +172,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Widefield Setup/Python/Python Scripts/NIDAQ ai-di-do continuous.md",
+                "file": "%resources/Quick Reference.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -155,7 +195,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Widefield Setup/Python/Python Scripts/NIDAQ ai-di-do continuous.md"
+                "file": "%resources/Quick Reference.md"
               }
             }
           },
@@ -189,47 +229,47 @@
       "workspaces:Manage workspace layouts": false
     }
   },
-  "active": "283cea1b77e742db",
+  "active": "87611bf66274898d",
   "lastOpenFiles": [
-    "Operations/LLM fintetuning.md",
-    "Operations/napari-mesoscope.md",
+    "Widefield Setup/Software/MicroManager.md",
+    "Widefield Setup/Software/Napari.md",
+    "Widefield Setup/Instruments/Control Boards/Arduino.md",
+    "Widefield Setup/docs/Hardware-triggering with Micro-Manager a case study.md",
+    "LOG/2024-07-25.md",
+    "Widefield Setup/Instruments/Cameras/%attachments/Churchland Widefield Schematic.bmp",
+    "Widefield Setup/Instruments/Cameras/Dhyana 400BSI V2.md",
+    "Widefield Setup/docs/sipefield environment setup.md",
+    "Widefield Setup/docs/References.md",
+    "Widefield Setup/docs/LLM fintetuning.md",
+    "Widefield Setup/Current Setup.md",
+    "Widefield Setup/Current Setup.canvas",
+    "Widefield Setup/Instruments/Control Boards/DAQ and Teensy diagram.bmp",
+    "Widefield Setup/Instruments/Control Boards/Teensy.md",
+    "Widefield Setup/docs/napari-mesoscope.md",
+    "Operations/GlassNest/Trapdoor.md",
+    "Widefield Setup/Instruments/Cameras/Thorlabs CS165 MU.md",
+    "Operations/GlassNest/+alpha.md",
+    "Operations/GlassNest/+wilko.md",
+    "Operations/GlassNest/+tango.md",
+    "Widefield Setup/Instruments/Control Boards/NI-DAQ/NI USB-6001.md",
+    "Widefield Setup/Python/Python Scripts/NIDAQ ai-di-do continuous.md",
+    "Widefield Setup/Instruments/Cameras/%attachments/Dhyana Output Trigger Parameters.png",
+    "Widefield Setup/Instruments/Cameras/%attachments/Dhyana Interface.png",
+    "Widefield Setup/Instruments/Cameras/%attachments/Dhyana CameraLink Driver Installation.png",
     "Widefield Setup/Computers/Pupil Computer.md",
     "Widefield Setup/Computers/Vis Computer.md",
     "Widefield Setup/Computers/Widefield Computer.md",
     "Widefield Setup/docs/Background Information.md",
-    "Widefield Setup/docs/Hardware-triggering with Micro-Manager a case study.md",
-    "Widefield Setup/docs/sipefield environment setup.md",
     "Widefield Setup/Python/Python Packages/pymmcore-plus.md",
-    "Widefield Setup/docs/References.md",
     "%resources/Quick Reference.md",
-    "Widefield Setup/Current Setup.canvas",
-    "Widefield Setup/Python/Python Scripts/NIDAQ ai-di-do continuous.md",
     "Widefield Setup/Python/Python Scripts/ThorLabs-continuous-capture.md",
-    "Widefield Setup/Instruments/Cameras/Dhyana 400BSI V2.md",
-    "Widefield Setup/Python/Python Packages/PycroManager.md",
-    "Widefield Setup/Python/Napari.md",
-    "Widefield Setup/Python/PyTorch.md",
     "Widefield Setup/Instruments/Cameras/%attachments/Dhyana 400BSI V2 pic.png",
     "Widefield Setup/Instruments/Cameras/%attachments/Dhyana technical specifications.png",
-    "Widefield Setup/Software/AutoHotkey.md",
     "Widefield Setup/%attachments/Pasted image 20240715094939.png",
     "Widefield Setup/%attachments/Pasted image 20240715094154.png",
-    "Widefield Setup/Instruments/Rotary Encoder.md",
-    "Widefield Setup/Instruments/Screens/Vis Stim Screen.md",
-    "Widefield Setup/Instruments/Cameras/Thorlabs CS165 MU.md",
     "Widefield Setup/%attachments/7ys5bmri.bmp",
-    "Widefield Setup/%attachments/kndf4nn8.bmp",
-    "Widefield Setup/%attachments/sklwzlof.bmp",
-    "Widefield Setup/%attachments/c8ebkbi3.bmp",
-    "Widefield Setup/%attachments/smigs8jf.bmp",
-    "Widefield Setup/Python/Python Packages/PsychoPy.md",
-    "Widefield Setup/%attachments/z28z2tun.bmp",
     "Widefield Setup/%attachments/Installation — PsychoPy v2024.1.5.url",
     "Widefield Setup/%attachments",
-    "Widefield Setup/Software/MicroManager.md",
-    "LOG/2024-06-20.md",
-    "Widefield Setup/Software/Napari.md",
-    "Widefield Setup/Python/Python Scripts/=scripts.md",
     "Widefield Setup/Python/Python Packages",
     "Widefield Setup/Python/Python Scripts",
     "Widefield Setup/Instruments/Screens",

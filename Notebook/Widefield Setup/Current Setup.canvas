@@ -96,16 +96,6 @@
       "label": "PsychoPy Computer"
     },
     {
-      "id": "5e0c0602970e0313",
-      "type": "link",
-      "url": "https://micro-manager.org/",
-      "styleAttributes": {},
-      "x": -425,
-      "y": -120,
-      "width": 1336,
-      "height": 720
-    },
-    {
       "id": "27bda0b2c0178022",
       "type": "link",
       "url": "https://scientificimaging.com/knowledge-base/tandem-lens-macroscope-configuration/",
@@ -184,6 +174,16 @@
       "height": 60
     },
     {
+      "id": "5e0c0602970e0313",
+      "type": "link",
+      "url": "https://micro-manager.org/",
+      "styleAttributes": {},
+      "x": -425,
+      "y": -120,
+      "width": 1336,
+      "height": 720
+    },
+    {
       "id": "5cd3bf7ffb47a062",
       "type": "file",
       "file": "Widefield Setup/Instruments/Cameras/Dhyana 400BSI V2.md",
@@ -224,6 +224,26 @@
       "height": 440
     },
     {
+      "id": "68640f4c2b304e9c",
+      "type": "text",
+      "text": "# MicroManager",
+      "styleAttributes": {},
+      "x": -700,
+      "y": -240,
+      "width": 360,
+      "height": 80
+    },
+    {
+      "id": "8953d2e30d07944b",
+      "type": "text",
+      "text": "https://micro-manager.org/",
+      "styleAttributes": {},
+      "x": -814,
+      "y": 640,
+      "width": 372,
+      "height": 50
+    },
+    {
       "id": "07b243f28d51d896",
       "type": "text",
       "text": "Widefield Camera",
@@ -246,26 +266,6 @@
       "height": 464
     },
     {
-      "id": "68640f4c2b304e9c",
-      "type": "text",
-      "text": "# MicroManager",
-      "styleAttributes": {},
-      "x": -700,
-      "y": -240,
-      "width": 360,
-      "height": 80
-    },
-    {
-      "id": "8953d2e30d07944b",
-      "type": "text",
-      "text": "https://micro-manager.org/",
-      "styleAttributes": {},
-      "x": -814,
-      "y": 640,
-      "width": 372,
-      "height": 50
-    },
-    {
       "id": "911939acba4ca3fd",
       "type": "file",
       "file": "Widefield Setup/%attachments/7ys5bmri.bmp",
@@ -283,16 +283,6 @@
       "x": -628,
       "y": 1272,
       "width": 640,
-      "height": 640
-    },
-    {
-      "id": "43bb254526c2ebe2",
-      "type": "link",
-      "url": "https://napari.org/stable/",
-      "styleAttributes": {},
-      "x": 63,
-      "y": 1272,
-      "width": 645,
       "height": 640
     },
     {
@@ -346,6 +336,16 @@
       "y": 3252,
       "width": 321,
       "height": 178
+    },
+    {
+      "id": "43bb254526c2ebe2",
+      "type": "link",
+      "url": "https://napari.org/stable/",
+      "styleAttributes": {},
+      "x": 63,
+      "y": 1272,
+      "width": 645,
+      "height": 640
     },
     {
       "id": "b40ba4cb2e7300f7",
