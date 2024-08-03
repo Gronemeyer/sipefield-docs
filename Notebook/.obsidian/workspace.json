@@ -77,19 +77,20 @@
             }
           },
           {
-            "id": "c98b875b601294c0",
+            "id": "934a7cf9756f3e0c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Widefield Setup/docs/sipefield environment setup.md",
+                "file": "Widefield Setup/Python/Python Packages/pymmcore-plus.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -139,7 +140,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "f005a1f147e335e8",
@@ -155,7 +157,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "%resources/Quick Reference.md",
+                "file": "Widefield Setup/Software/MicroManager.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -172,7 +174,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "%resources/Quick Reference.md",
+                "file": "Widefield Setup/Software/MicroManager.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -195,7 +197,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "%resources/Quick Reference.md"
+                "file": "Widefield Setup/Software/MicroManager.md"
               }
             }
           },
@@ -229,20 +231,22 @@
       "workspaces:Manage workspace layouts": false
     }
   },
-  "active": "87611bf66274898d",
+  "active": "67dec49a2663717f",
   "lastOpenFiles": [
+    "Widefield Setup/Python/Python Packages/pymmcore-plus.md",
     "Widefield Setup/Software/MicroManager.md",
+    "Widefield Setup/Current Setup.canvas",
+    "Widefield Setup/docs/sipefield environment setup.md",
+    "%resources/Quick Reference.md",
     "Widefield Setup/Software/Napari.md",
     "Widefield Setup/Instruments/Control Boards/Arduino.md",
     "Widefield Setup/docs/Hardware-triggering with Micro-Manager a case study.md",
     "LOG/2024-07-25.md",
     "Widefield Setup/Instruments/Cameras/%attachments/Churchland Widefield Schematic.bmp",
     "Widefield Setup/Instruments/Cameras/Dhyana 400BSI V2.md",
-    "Widefield Setup/docs/sipefield environment setup.md",
     "Widefield Setup/docs/References.md",
     "Widefield Setup/docs/LLM fintetuning.md",
     "Widefield Setup/Current Setup.md",
-    "Widefield Setup/Current Setup.canvas",
     "Widefield Setup/Instruments/Control Boards/DAQ and Teensy diagram.bmp",
     "Widefield Setup/Instruments/Control Boards/Teensy.md",
     "Widefield Setup/docs/napari-mesoscope.md",
@@ -260,9 +264,6 @@
     "Widefield Setup/Computers/Vis Computer.md",
     "Widefield Setup/Computers/Widefield Computer.md",
     "Widefield Setup/docs/Background Information.md",
-    "Widefield Setup/Python/Python Packages/pymmcore-plus.md",
-    "%resources/Quick Reference.md",
-    "Widefield Setup/Python/Python Scripts/ThorLabs-continuous-capture.md",
     "Widefield Setup/Instruments/Cameras/%attachments/Dhyana 400BSI V2 pic.png",
     "Widefield Setup/Instruments/Cameras/%attachments/Dhyana technical specifications.png",
     "Widefield Setup/%attachments/Pasted image 20240715094939.png",

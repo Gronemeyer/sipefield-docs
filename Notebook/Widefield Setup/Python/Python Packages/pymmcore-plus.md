@@ -2,6 +2,166 @@
 github: https://github.com/pymmcore-plus
 ---
 ![mm diagram](https://user-images.githubusercontent.com/1609449/202301602-00ba0fd8-df4f-4993-b0ad-8e3d1cefaf42.png)
+https://forum.microlist.org/t/belatedly-announcing-pymmcore-plus-an-ecosystem-of-pure-python-tools-for-running-experiments-with-micro-manager-core/2268
+# Forum Response for Hardware Sequencing
+
+^1785be
+### Trouble with Hardware-Triggered MDA Sequence Synchronizing Arduino LED Controller State and sCMOS Global Exposure - Usage & Issues - [forum.image.sc](https://forum.image.sc/t/trouble-with-hardware-triggered-mda-sequence-synchronizing-arduino-led-controller-state-and-scmos-global-exposure/99659)
+
+the code that determines whether 2 events can be combined into a hardware-triggered sequence is [here](https://github.com/pymmcore-plus/pymmcore-plus/blob/c13023ab801129797523c0dd13bfdb808e815efb/src/pymmcore_plus/core/_sequencing.py#L158).
+
+first, I can definitely say that, at this point only sequences with an interval of 0 will be hardware sequenceable (just as in MM i believe). Anything else (even a short delay of 1/70 as in your script) will hit this line here and fail to be sequenced:
+
+> in the napari-micromanager plugin, the MDA sequence widget does not allow the user to set the time interval to 0
+
+with the above in mind, this is definitely a problem for you one that can be easily fixed. However, for now, let’s leave napari out of this and stick with your (very helpful) simplified script. Have you tried, for example, using no interval?:
+
+```python
+mda_sequence = useq.MDASequence(
+    time_plan=useq.TIntervalLoops(interval=0, loops=10),
+    channels=["Blue", "Violet"],
+)
+```
+
+(even if the napari widget isn’t currently capable of that, it’s definitely possible to create an MDASequence with no time delay)
+
+Please try running your same script with an interval of 0 and let me know if it helps.
+
+---
+
+some general tips that may also help:
+
+1. When you create an instance of `MDASequence`, you can iterate over it to see the events that would be created:
+
+```python
+In [2]: import useq
+
+In [3]: mda_sequence = useq.MDASequence(
+   ...:     time_plan=useq.TIntervalLoops(interval=0, loops=5),
+   ...: )
+
+In [4]: list(mda_sequence)
+Out[4]:
+
+[
+    MDAEvent(index=mappingproxy({'t': 0}), min_start_time=0.0),
+    MDAEvent(index=mappingproxy({'t': 1}), min_start_time=0.0),
+    MDAEvent(index=mappingproxy({'t': 2}), min_start_time=0.0),
+    MDAEvent(index=mappingproxy({'t': 3}), min_start_time=0.0),
+    MDAEvent(index=mappingproxy({'t': 4}), min_start_time=0.0)
+]
+```
+
+if you’d like to check whether the default micro-manager engine in pymmcore_plus is capable of sequencing any/all of those events when loaded with your microscope config you can pass the sequence through the engine’s `event_iterator`. See in the example below how the same sequence that was 5 events above gets turned into 1 sequenced event below:
+
+```python
+In [3]: from pymmcore_plus import CMMCorePlus
+   ...: mmc = CMMCorePlus.instance()
+   ...: mmc.loadSystemConfiguration()
+   ...: print(list(mmc.mda.engine.event_iterator(mda_sequence)))
+[
+    SequencedEvent(
+        index={'t': 0},
+        min_start_time=0.0,
+        events=(
+            MDAEvent(index=mappingproxy({'t': 0}), min_start_time=0.0),
+            MDAEvent(index=mappingproxy({'t': 1}), min_start_time=0.0),
+            MDAEvent(index=mappingproxy({'t': 2}), min_start_time=0.0),
+            MDAEvent(index=mappingproxy({'t': 3}), min_start_time=0.0),
+            MDAEvent(index=mappingproxy({'t': 4}), min_start_time=0.0)
+        ),
+        exposure_sequence=(),
+        x_sequence=(),
+        y_sequence=(),
+        z_sequence=()
+    )
+]
+```
+
+if you _don’t_ see your events getting turned into a `SequencedEvent`, then you’ll know something is going wrong… and then you need to determine which events were not sequencable and why. the easiest way to get a _reason_ why something may or may not be sequenceable is to do the following:
+
+```python
+In [12]: from pymmcore_plus.core._sequencing import can_sequence_events
+
+In [13]: events = list(mda_sequence)
+
+In [14]: can_sequence_events(mmc, events[0], events[1], return_reason=True)
+Out[14]: (True, '')
+```
+
+whereas, with a time delay:
+
+```python
+In [15]: mda_sequence = useq.MDASequence(
+    ...:     time_plan=useq.TIntervalLoops(interval=1/70, loops=5),
+    ...: )
+
+In [16]: events = list(mda_sequence)
+
+In [17]: can_sequence_events(mmc, events[0], events[1], return_reason=True)
+Out[17]: (False, 'Must pause at least 0.014286 s between events.')
+```
+
+that will also let you know if its some other hardware related thing (unrelated to time delay) that is preventing hardware triggering
+
+
+## Response
+```python
+In [1]: mmc.describe()
+
+Out [1]: MMCore version 11.1.1, Device API version 71, Module API version 10
+┌─────────────────┬────────────┬─────────┬──────────────────┬─────────────────┐
+│ Device Label    │ Type       │ Current │ Library::Device… │ Description     │
+├─────────────────┼────────────┼─────────┼──────────────────┼─────────────────┤
+│ COM12           │ Serial     │         │ SerialManager::… │ Serial          │
+│                 │            │         │                  │ communication   │
+│                 │            │         │                  │ port            │
+│ Dhyana          │ 📷 Camera  │ Camera  │ TUCam::TUCam     │ TUCSEN Camera   │
+│ Arduino-Hub     │ 🔌 Hub     │         │ Arduino::Arduin… │ Hub (required)  │
+│ Arduino-Switch  │ 🟢 State   │         │ Arduino::Arduin… │ Digital out     │
+│                 │            │         │                  │ 8-bit           │
+│ Arduino-Shutter │ 💡 Shutter │ Shutter │ Arduino::Arduin… │ Shutter         │
+│ Arduino-Input   │ Generic    │         │ Arduino::Arduin… │ ADC             │
+│ Core            │ 💙 Core    │         │ ::Core           │ Core device     │
+└─────────────────┴────────────┴─────────┴──────────────────┴─────────────────┘
+
+In [46]: Arduino = mmc.getAdapterObject('Arduino')
+
+In [57]: Arduino.loaded_devices
+Out[57]: 
+	(<Device 'Arduino-Hub' (Arduino::Arduino-Hub) on CMMCorePlus at 0x1fe770b8180: 4 properties>,
+	 <Device 'Arduino-Switch' (Arduino::Arduino-Switch) on CMMCorePlus at 0x1fe770b8180: 8 properties>,
+	 <Device 'Arduino-Shutter' (Arduino::Arduino-Shutter) on CMMCorePlus at 0x1fe770b8180: 4 properties>,
+	 <Device 'Arduino-Input' (Arduino::Arduino-Input) on CMMCorePlus at 0x1fe770b8180: 12 properties>)
+
+
+Arduino = mmc.getDeviceObject('Arduino-Switch')
+Arduino.description()
+Out[74]: 'Digital out 8-bit'
+
+blanking = mmc.getPropertyObject("Arduino-Switch", "Blanking Mode")
+blanking.allowedValues()
+Out[85]: ('Off', 'On')
+
+blanking.isSequenceable()
+Out[87]: False
+
+blanking.value
+Out[89]: 'Off'
+
+blanking.setValue('On')
+
+blanking.value
+Out[93]: 'On'
+
+blanking.isSequenceable()
+Out[94]: False
+```
+
+---
+
+if you determine that all it was was using an interval of 0, we can easily fix the widget in napari to make it easier to set this
+
 
 # Custom Acquisition Engine
 To execute a sequence, you must:
