@@ -77,8 +77,6 @@ Add the Arduino-Hub. You may want to set the “Verbose” property of the port 
 |Verbose|0|
 
 
-If you get the following error message when trying to _Add_ the Arduino device in the Wizard: `There are no unused ports available!`, first check that the Arduino is connected to the computer. Also, under GNU/Linux systems,make sure that your user is in the `dialout` system group ([http://micro-manager.3463995.n2.nabble.com/Contol-Leica-DMI6000B-using-MM-on-Linux-td7582998.html see details]).
-
 ### Peripheral Devices Setup
 
 | Name             | Description                                                                                                                                                                                                                                                                                                                           |
@@ -93,9 +91,6 @@ If you get the following error message when trying to _Add_ the Arduino device i
 |Pin|Reads all 6 input pins when set to **All**, otherwise reads the individual 0-5 Pin number.|
 |Pull-Up-Resistor|Choose whether the Arduino should use its internal 20 kOhm internal pull-up resistor. If not sure, choose **On**.|
 
-### Test Communication
-
-Arduino boards Duemilanove and newer feature an LED attached to pin 13. One can verify the Arduino is communicating by changing the state of pin 13 and verifying the LED changes. Setting pin 13 HIGH requires setting the `Arduino-Switch-State` to 32 (i.e. 2^5) in the `Device/Property Browser`. Toggle the `Arduino-Shutter` in the main MM window (the output pins will only go high when the Shutter Device is open, so you will need both the Shutter and State devices).
 
 ## Usage Notes
 
@@ -136,55 +131,6 @@ The “blanking” feature of the device adapter allows to ensure that the sampl
 | DAC{1,2}-HubID         | (Not usually used) Reserved for TLV5618 AOTF Peripheral.                                                                                                                                                                                              |
 | DAC(1,2}-Volts         | (Not usually used) Reserved for TLV5618 AOTF Peripheral.                                                                                                                                                                                              |
 
-### DAC
-
-A _DAC_ (digital-to-analog) converter is required for the Arduino to output analog signals. Indeed, the Arduino can only _simulate_ analog outputs using a [PWM](https://www.arduino.cc/en/Tutorial/PWM). To output _true_ analog output, a chip that perform a digital-to-analog conversion is required.
-
-#### PWM
-
-When a pin is configured in PWM mode (using the `analogWrite` Arduino command), the pin constantly switches between the binary _HIGH_ and _LOW_ values such that the temporal average of the signal is the required analog output: although the average of the voltage on a given pin is different from the _HIGH_ and _LOW_ values, the pin actually outputs a high frequency square wave, which can be detrimental to some devices that require a true analog signal. A way to smooth the PWM output to its average value is to use a [RC circuit](https://en.wikipedia.org/wiki/RC_circuit).
-
-Furthermore, the default PWM frequency of the Arduino is relatively low: about 1 kHz. It is possible to [go up to 30-60kHz](https://www.arduino.cc/en/Tutorial/SecretsOfArduinoPWM).
-
-#### DAC - Description
-
-One DAC chip is the [Texas Instrument TLV5618](http://www.ti.com/product/TLV5618A/technicaldocuments). It is a 12 bit DAC. It is easy to handle and the Arduino firmware can talk natively to it through a builtin [SPI protocol](https://www.arduino.cc/en/Reference/SPI).
-
-It can be wired as follows on pins 3, 4 and 5 of the Arduino and will require a few additional components:
-
-- A decoupling capacitor (we used a 100 nF ceramic capacitor)
-- Resistors/potentiometers to build a voltage divisor and power the _REF_ pin of the DAC. The reference has to be set at 2.04 V. This can be achieved using a 20 kOhm resistor on one side and a 29 kOhm resistor on the other side (29 kohm can be obtained with 20+6.8+2.2 kOhm serial resistors).
-
-Those should be wired as follow:
-
-![](https://micro-manager.org/media/TLV5618_wiring.png)
-
-Notes:
-
-- _OUT_A_ and _OUT_B_ are the analog outputs.
-- The pair of resistors _R1_ and _R2_can be tweaked as long as the voltage on the _REF_ pin of the TLV5618 remains 2.04 V
-- The _+5V_ and _GND_ should be wired to the 5V and GND pins of the Arduino
-
-#### Alternative wiring
-
-The current (as of Oct. 2016) implementation of the SPI interface in the Arduino firmware limits the speed of the DAC to approximately 1 kHz. However, it is possible to do better by using the [builtin SPI interface](https://www.arduino.cc/en/Reference/SPI) of the Arduino. This can shrink the response down to 25 µs (40 kHz).
-
-However, the SPI interface is only available on pins 10, 11, 13, which requires a little bit of reorganization of the Arduino code to work out-of-the box, and the `analogueOutput` function has to be re-written to use the SPI interface ([see an example](http://www.stephenhobley.com/build/lh_arduino.html))
-
-Additional information is available on those websites:
-
-- [Digital-to-analog converter](https://karplus4arduino.wordpress.com/2011/06/15/digital-to-analog-converter/)
-- [Laser harp construction](http://www.stephenhobley.com/build/lh_arduino.html)
-
-#### DAC - performance
-
-**Linearity**: If the voltage on the reference pin _REF_ of the TLV5618 is properly set, the response to a ramp command is fairly linear (see image below). Note that the y scale is arbitrary and the x scale is ms.
-
-![](https://micro-manager.org/media/TLV5618-linearity.png)
-
-**Response time**:
-
-![](https://micro-manager.org/media/TLV5618_response.png)
 
 ## Project Tutorials
 

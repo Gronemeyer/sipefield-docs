@@ -106,6 +106,143 @@ that will also let you know if its some other hardware related thing (unrelated 
 
 
 ## Response
+
+Thank you @talley for your helpful and detailed response (and also for your work on these projects!).
+
+First, I'll acknowledge that I tested your confirmation that, indeed, the time interval 0 does initiate hardware sequencing and camera streaming through the Napari interface (and with the Useq schema in general). 
+
+Thank you for your direction to the sequencability code. Researching the pymmcore_plus API a bit more I made a useful (lazy) way to find the sequencable properties of a loaded MMCore Config file:
+
+```python
+# Print True or False for every property's sequencability (without Device names)
+for settings in mmc.iterProperties():
+    print(f'{settings.isSequenceable()} : The setting: {settings.name} is sequencable')
+```
+
+This helped me then isolate issues with specific Device Properties that were not sequencable. The issue seems to be related to my lack of understanding towards the MicroManager Configuration file setup. It seems that, based on my configuration, the MMCore is not interpreting the setup of my hardware how I would like; specifically, the sequences uploaded to the Arduino are limited by the Arduino's maximum Sequence length (12). I will provide some detailed context for how I came to this hypothesis.
+
+Here are details from the [Arduino Device page](https://micro-manager.org/Arduino#usage-notes) for how I am using the device:
+
+|Name |Description|
+|---|---|
+|Arduino-Switch |Digital output pattern set across pins 8 to 13. See usage in Digital IO.|
+|Arduino-Shutter |Toggles the digital outputs pattern across pins 8 to 13. Set all pins off when the shutter is closed, and restores the value set in Switch-State when the shutter is opened.|
+
+Here is my Configured setup:
+
+```python
+In [1]: mmc.describe()
+
+Out [1]: MMCore version 11.1.1, Device API version 71, Module API version 10
+┌─────────────────┬────────────┬─────────┬──────────────────┬─────────────────┐
+│ Device Label    │ Type       │ Current │ Library::Device… │ Description     │
+├─────────────────┼────────────┼─────────┼──────────────────┼─────────────────┤
+│ COM12           │ Serial     │         │ SerialManager::… │ Serial          │
+│                 │            │         │                  │ communication   │
+│                 │            │         │                  │ port            │
+│ Dhyana          │ 📷 Camera  │ Camera  │ TUCam::TUCam     │ TUCSEN Camera   │
+│ Arduino-Hub     │ 🔌 Hub     │         │ Arduino::Arduin… │ Hub (required)  │
+│ Arduino-Switch  │ 🟢 State   │         │ Arduino::Arduin… │ Digital out     │
+│                 │            │         │                  │ 8-bit           │
+│ Arduino-Shutter │ 💡 Shutter │ Shutter │ Arduino::Arduin… │ Shutter         │
+│ Arduino-Input   │ Generic    │         │ Arduino::Arduin… │ ADC             │
+│ Core            │ 💙 Core    │         │ ::Core           │ Core device     │
+└─────────────────┴────────────┴─────────┴──────────────────┴─────────────────┘
+```
+
+I found that the "Sequencable" setting in my [Arduino firmware](https://github.com/micro-manager/mmCoreAndDevices/blob/main/DeviceAdapters/Arduino/AOTFcontroller/AOTFcontroller.ino) is *not*, itself, sequencable--not that I expected it to be--and including the setting in the Channel Group configuration was part of the problem. Similar to other settings such as "Blanking." It is the Arduino-Switch 'State' property that is sequenced, but requires the 'Sequence' Property to be 'On':
+
+```python
+arduino_sequencing = mmc.getPropertyObject("Arduino-Switch", "Sequencing")
+arduino_sequencing.isSequenceable()
+Out[87]: False
+
+arduino_blanking = mmc.getPropertyObject("Arduino-Switch", "Blanking Mode")
+arduino_blanking.isSequenceable()
+Out[87]: False
+
+# For State Switch to be sequencable:
+mmc.setProperty('Arduino-Switch', 'Sequence', 'On')
+switch = mmc.getPropertyObject('Arduino-Switch', 'State')
+switch.isSequenceable()
+Out[17]: True
+
+```
+
+Therefore, I reduced my Channel configuration to just contain the 'State' property:
+
+```python
+for configs in mmc.iterConfigGroups():
+    print(configs)
+
+Out[2]:
+	ConfigGroup 'Channel'
+	=====================
+	Blue:
+	  Arduino-Switch:
+	    - State: 4 # Pinout Byte code corresponding to 488nm LED
+	Violet:
+	  Arduino-Switch:
+	    - State: 16 # Pinmout Byte code corresponding to 405nm LED
+
+In[18]: can_sequence_events(mmc, events[0], events[1], return_reason=True)
+Out[19]: (True, '')
+```
+
+However, it seems to hardware sequence only 12 MDA Events at a time, resulting in a software-triggered hiccup every 12 frames. Interestingly, once the acquisition is complete, *and with Auto-Shutter 'ON'*, the Camera-Arduino-LED circuit loop is left to work autonomously; the LEDs flash under the lens at the exposure rate of the camera as intended. I believe this "error" explains why this occurs:
+
+```python
+lib\site-packages\pymmcore_plus\mda\_engine.py:378, in MDAEngine.setup_sequenced_event(self=<pymmcore_plus.mda._engine.MDAEngine object>, event=SequencedEvent(index=mappingproxy({'t': 6, 'p': ...=(), x_sequence=(), y_sequence=(), z_sequence=()))
+
+376 with suppress(RuntimeError):
+377 core.stopPropertySequence(dev, prop)
+--> 378 core.loadPropertySequence(dev, prop, value_sequence)
+
+core = <CMMCorePlus at 0x2a4b6e5d3a0>
+value_sequence = ['4', '16', '4', '16', '4', '16', '4', '16', '4', '16', '4', '16']
+dev = 'Arduino-Switch'
+prop = 'State'
+380 # TODO: SLM
+381
+382 # preparing a Sequence while another is running is dangerous.
+383 if core.isSequenceRunning():
+
+RuntimeError: Error in device "Arduino-Switch": Error in communication with Arduino board (107)
+```
+
+The error is useful in context [Arduino firmware source code](https://github.com/micro-manager/mmCoreAndDevices/blob/main/DeviceAdapters/Arduino/AOTFcontroller/AOTFcontroller.ino) . Here are the properties the Arduino expects to receive from MMCore.
+
+```c
+   const int SEQUENCELENGTH = 12;  // this should be good enough for everybody;)
+   byte triggerPattern_[SEQUENCELENGTH] = {0,0,0,0,0,0,0,0,0,0,0,0};
+   unsigned int triggerDelay_[SEQUENCELENGTH] = {0,0,0,0,0,0,0,0,0,0,0,0};
+   int patternLength_ = 0;
+   byte repeatPattern_ = 0;
+   volatile long triggerNr_; // total # of triggers in this run (0-based)
+   volatile long sequenceNr_; // # of trigger in sequence (0-based)
+   int skipTriggers_ = 0;  // # of triggers to skip before starting to generate patterns
+   byte currentPattern_ = 0;
+   const unsigned long timeOut_ = 1000;
+   bool blanking_ = false;
+   bool blankOnHigh_ = false;
+   bool triggerMode_ = false;
+   boolean triggerState_ = false;
+```
+
+Current hypothesis: The Arduino expects a sequence *pattern* that it will loop through, hardware sequenced by Camera-Output-Trigger TTL on pin 2. I think that instead of giving the Arduino a 'sequenceNr_', the MMCore mda is attempting to send a new pattern each mda "loop" essentially keeping the computer "in-the-loop." I am having a hard time intuiting *why* this would occur--I imagine I am just simply missing some key information! 
+
+With regards to the Config settings, this has been easier to test within the napari-micromanager setup. When just building my own MDA I notice I do not as easily get a proper acquisition sequence with the Camera. It seems the Camera needs to be included in the MDA sequence somehow, but it hasn't been clear to me how.
+
+Let me know if I can provide any more details. Apologies for the long post, but I figure this documentation may help anyone running into a similar issue. 
+
+```python
+value_sequence = ['4', '16', '4', '16', '4', '16', '4', '16', '4', '16', '4', '16']
+dev = 'Arduino-Switch'
+prop = 'State'
+mmc.setPropertySequence
+mmc.startPropertySequence
+```
+
 ```python
 In [1]: mmc.describe()
 
@@ -158,6 +295,35 @@ blanking.isSequenceable()
 Out[94]: False
 ```
 
+```python
+lib\site-packages\pymmcore_plus\mda\_engine.py:378, in MDAEngine.setup_sequenced_event(self=<pymmcore_plus.mda._engine.MDAEngine object>, event=SequencedEvent(index=mappingproxy({'t': 6, 'p': ...=(), x_sequence=(), y_sequence=(), z_sequence=()))
+
+376 with suppress(RuntimeError):
+
+377 core.stopPropertySequence(dev, prop)
+
+--> 378 core.loadPropertySequence(dev, prop, value_sequence)
+
+core = <CMMCorePlus at 0x2a4b6e5d3a0>
+
+value_sequence = ['4', '16', '4', '16', '4', '16', '4', '16', '4', '16', '4', '16']
+
+dev = 'Arduino-Switch'
+
+prop = 'State'
+
+380 # TODO: SLM
+
+381
+
+382 # preparing a Sequence while another is running is dangerous.
+
+383 if core.isSequenceRunning():
+
+  
+
+RuntimeError: Error in device "Arduino-Switch": Error in communication with Arduino board (107)
+```
 ---
 
 if you determine that all it was was using an interval of 0, we can easily fix the widget in napari to make it easier to set this
