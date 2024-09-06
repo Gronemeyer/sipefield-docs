@@ -1,9 +1,10 @@
+[[Current Setup]]
 [[Arduino]]
-[[MicroManager#^cf4e08]]
+[[MicroManager#^cf4e08|Micromanager Arduino Device Setup]]
 
 [[Hardware-triggering with Micro-Manager a case study]]
-[[LLM fintetuning]]
-[[Dhyana 400BSI V2#^fe9623]]
+[[LLM finetuning]]
+[[Dhyana 400BSI V2#^fe9623|Dhyana Trigger Instructions]]
 
 Forum response:
 [[pymmcore-plus#^1785be]]

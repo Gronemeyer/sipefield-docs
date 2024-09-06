@@ -5,7 +5,8 @@ relatives:
 ---
 ![Micro-Manage Block Diagram](https://micro-manager.org/media/Block_diagram.gif "Micro-Manage Block Diagram")
 
-
+[User Guide](https://micro-manager.org/Version_2.0_Users_Guide#sequence-acquisitions)
+[Hardware Based Synchronization](https://micro-manager.org/Hardware-based_Synchronization_in_Micro-Manager)
 [Download](https://micro-manager.org/Download_Micro-Manager_Latest_Release) ^963752
 
 [Integration](https://micro-manager.org/Using_the_Micro-Manager_python_library) with [[PycroManager]] and [[pymmcore-plus]] and [[Widefield Setup/Software/Napari|Napari]]
@@ -27,14 +28,12 @@ relatives:
 
 ## Device Management
 
-[[NI USB-6001]] : https://micro-manager.org/NIDAQ
+[MMDevice-NI USB-6001](https://micro-manager.org/NIDAQ)
 [[Teensy]]
-
+[MMDevice-Arduino](https://micro-manager.org/Arduino)
 # [[Arduino]] setup device firmware in Micromanager: 
 
 ^cf4e08
-
-[micro-manager.org](https://micro-manager.org/Arduino)
 
 | Summary:                     | Adapter for the [Arduino electronics prototyping platform](http://www.arduino.cc/) |
 | ---------------------------- | ---------------------------------------------------------------------------------- |
@@ -76,7 +75,6 @@ Add the Arduino-Hub. You may want to set the “Verbose” property of the port 
 |StopBits|1|
 |Verbose|0|
 
-
 ### Peripheral Devices Setup
 
 | Name             | Description                                                                                                                                                                                                                                                                                                                           |
@@ -91,7 +89,6 @@ Add the Arduino-Hub. You may want to set the “Verbose” property of the port 
 |Pin|Reads all 6 input pins when set to **All**, otherwise reads the individual 0-5 Pin number.|
 |Pull-Up-Resistor|Choose whether the Arduino should use its internal 20 kOhm internal pull-up resistor. If not sure, choose **On**.|
 
-
 ## Usage Notes
 
 ### Digital IO
@@ -100,14 +97,14 @@ All possible combinations of digital outputs that can be set across pins 8 to 13
 
 ==To choose the set of pins to be on for your== `Arduino-Switch-State` ==pattern, simply add all the decimal values for the pin from the table below; so for pins 8 and 10 to be on, needs a decimal value of 1 + 4 = **5** to be set in== `Arduino-Switch-State`.
 
-| Pin | Bit | Decimal Value when On | **Cable** | **LED State** |
-| --- | --- | --------------------- | --------- | ------------- |
-| 8   | 0   | 1                     | *black*   | strobe        |
-| 9   | 1   | 2                     | ---       | ---           |
-| 10  | 2   | 4                     | *red*     | blue          |
-| 11  | 3   | 8                     | ---       | ---           |
-| 12  | 4   | 16                    | *white*   | violet        |
-| 13  | 5   | 32                    | ---       | ---           |
+| Pin | Bit | Decimal Value when On | **LED State** |
+| --- | --- | --------------------- | ------------- |
+| 8   | 0   | 1                     | strobe        |
+| 9   | 1   | 2                     | violet        |
+| 10  | 2   | 4                     | blue          |
+| 11  | 3   | 8                     | ---           |
+| 12  | 4   | 16                    | ---           |
+| 13  | 5   | 32                    | ---           |
 
 *The reason one has to do this is MM encodes the pins as bits in binary*. Pin 13 corresponds to the most significant bit 5, whose decimal value is 2^5 = 32. Similarly pin 10 will be bit 2 which has a decimal value of 2^2 = 4.
 

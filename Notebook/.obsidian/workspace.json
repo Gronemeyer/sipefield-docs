@@ -54,7 +54,7 @@
             "state": {
               "type": "canvas",
               "state": {
-                "file": "Widefield Setup/Current Setup.canvas",
+                "file": "Widefield Setup/docs/Current Setup.canvas",
                 "viewState": {
                   "x": -2147.2509880684947,
                   "y": 768.402696197561,
@@ -64,12 +64,51 @@
             }
           },
           {
-            "id": "934a7cf9756f3e0c",
+            "id": "3c92bc48869b5a06",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Widefield Setup/Python/Python Packages/pymmcore-plus.md",
+                "file": "Widefield Setup/Software/MicroManager.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "47ae4b3a930d879e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Widefield Setup/Software/MicroManager.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "c8b71b64540a545c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Widefield Setup/Instruments/Cameras/Dhyana 400BSI V2.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ecae72459bc82eee",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Widefield Setup/Software/MicroManager.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -77,7 +116,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 7
       }
     ],
     "direction": "vertical"
@@ -143,7 +182,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Widefield Setup/Python/Python Packages/pymmcore-plus.md",
+                "file": "Widefield Setup/Software/MicroManager.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -160,7 +199,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Widefield Setup/Python/Python Packages/pymmcore-plus.md",
+                "file": "Widefield Setup/Software/MicroManager.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -183,7 +222,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Widefield Setup/Python/Python Packages/pymmcore-plus.md"
+                "file": "Widefield Setup/Software/MicroManager.md"
               }
             }
           },
@@ -217,42 +256,41 @@
       "workspaces:Manage workspace layouts": false
     }
   },
-  "active": "934a7cf9756f3e0c",
+  "active": "ecae72459bc82eee",
   "lastOpenFiles": [
-    "%resources/Shopping list.md",
-    "Widefield Setup/Python/Python Packages/pymmcore-plus.md",
-    "Widefield Setup/Current Setup.canvas",
+    "Widefield Setup/Instruments/Control Boards/Arduino.md",
+    "%resources/Quick Reference.md",
     "Widefield Setup/Software/MicroManager.md",
+    "Widefield Setup/Instruments/Cameras/Thorlabs CS165 MU.md",
+    "Widefield Setup/Instruments/Cameras/Dhyana 400BSI V2.md",
+    "Widefield Setup/docs/Current Setup.md",
     "Widefield Setup/Instruments/LEDD1B T-Cube.md",
+    "Widefield Setup/docs/Current Setup.canvas",
+    "Widefield Setup/docs/LLM finetuning.md",
+    "Widefield Setup/Python/Python Packages/pymmcore-plus.md",
+    "%resources/Shopping list.md",
     "Widefield Setup/Instruments/%attachments/47j062ih.bmp",
     "Widefield Setup/Instruments/%attachments",
     "Widefield Setup/Instruments/Cameras/Untitled.md",
-    "Widefield Setup/Instruments/Cameras/Dhyana 400BSI V2.md",
     "Widefield Setup/docs/sipefield environment setup.md",
-    "%resources/Quick Reference.md",
     "Widefield Setup/Software/Napari.md",
-    "Widefield Setup/Instruments/Control Boards/Arduino.md",
     "Widefield Setup/docs/Hardware-triggering with Micro-Manager a case study.md",
-    "LOG/2024-07-25.md",
+    "%resources/LOG/2024-07-25.md",
     "Widefield Setup/Instruments/Cameras/%attachments/Churchland Widefield Schematic.bmp",
     "Widefield Setup/docs/References.md",
-    "Widefield Setup/docs/LLM fintetuning.md",
-    "Widefield Setup/Current Setup.md",
     "Widefield Setup/Instruments/Control Boards/DAQ and Teensy diagram.bmp",
     "Widefield Setup/Instruments/Control Boards/Teensy.md",
     "Widefield Setup/docs/napari-mesoscope.md",
-    "Operations/GlassNest/Trapdoor.md",
-    "Widefield Setup/Instruments/Cameras/Thorlabs CS165 MU.md",
-    "Operations/GlassNest/+alpha.md",
-    "Operations/GlassNest/+wilko.md",
-    "Operations/GlassNest/+tango.md",
+    "%resources/Operations/GlassNest/Trapdoor.md",
+    "%resources/Operations/GlassNest/+alpha.md",
+    "%resources/Operations/GlassNest/+wilko.md",
+    "%resources/Operations/GlassNest/+tango.md",
     "Widefield Setup/Instruments/Control Boards/NI-DAQ/NI USB-6001.md",
     "Widefield Setup/Python/Python Scripts/NIDAQ ai-di-do continuous.md",
     "Widefield Setup/Instruments/Cameras/%attachments/Dhyana Output Trigger Parameters.png",
     "Widefield Setup/Instruments/Cameras/%attachments/Dhyana Interface.png",
     "Widefield Setup/Instruments/Cameras/%attachments/Dhyana CameraLink Driver Installation.png",
     "Widefield Setup/Computers/Pupil Computer.md",
-    "Widefield Setup/Computers/Vis Computer.md",
     "Widefield Setup/Instruments/Cameras/%attachments/Dhyana 400BSI V2 pic.png",
     "Widefield Setup/Instruments/Cameras/%attachments/Dhyana technical specifications.png",
     "Widefield Setup/%attachments/Pasted image 20240715094939.png",
