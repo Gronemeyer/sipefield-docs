@@ -82,7 +82,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Widefield Setup/Software/MicroManager.md",
+                "file": "Widefield Setup/Instruments/Control Boards/Arduino.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -108,7 +108,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Widefield Setup/Software/MicroManager.md",
+                "file": "Widefield Setup/Python/Python Packages/image-sc-forum.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -182,7 +182,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Widefield Setup/Software/MicroManager.md",
+                "file": "Widefield Setup/Python/Python Packages/image-sc-forum.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -199,7 +199,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Widefield Setup/Software/MicroManager.md",
+                "file": "Widefield Setup/Python/Python Packages/image-sc-forum.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -222,7 +222,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Widefield Setup/Software/MicroManager.md"
+                "file": "Widefield Setup/Python/Python Packages/image-sc-forum.md"
               }
             }
           },
@@ -259,16 +259,21 @@
   "active": "ecae72459bc82eee",
   "lastOpenFiles": [
     "Widefield Setup/Instruments/Control Boards/Arduino.md",
-    "%resources/Quick Reference.md",
     "Widefield Setup/Software/MicroManager.md",
+    "Widefield Setup/Python/Python Packages/image-sc-forum.md",
+    "Widefield Setup/Python/Python Packages/pymmcore-plus.md",
+    "%resources/Quick Reference.md",
+    "%resources/Shopping list.md",
+    "Widefield Setup/Python/Python Scripts/ThorLabs-continuous-capture.md",
+    "Widefield Setup/Python/Python Scripts/NIDAQ ai-di-do continuous.md",
+    "Widefield Setup/Python/Python Packages/PycroManager.md",
+    "Widefield Setup/docs/Psychopy autorun.md",
     "Widefield Setup/Instruments/Cameras/Thorlabs CS165 MU.md",
     "Widefield Setup/Instruments/Cameras/Dhyana 400BSI V2.md",
     "Widefield Setup/docs/Current Setup.md",
     "Widefield Setup/Instruments/LEDD1B T-Cube.md",
     "Widefield Setup/docs/Current Setup.canvas",
     "Widefield Setup/docs/LLM finetuning.md",
-    "Widefield Setup/Python/Python Packages/pymmcore-plus.md",
-    "%resources/Shopping list.md",
     "Widefield Setup/Instruments/%attachments/47j062ih.bmp",
     "Widefield Setup/Instruments/%attachments",
     "Widefield Setup/Instruments/Cameras/Untitled.md",
@@ -284,13 +289,9 @@
     "%resources/Operations/GlassNest/Trapdoor.md",
     "%resources/Operations/GlassNest/+alpha.md",
     "%resources/Operations/GlassNest/+wilko.md",
-    "%resources/Operations/GlassNest/+tango.md",
-    "Widefield Setup/Instruments/Control Boards/NI-DAQ/NI USB-6001.md",
-    "Widefield Setup/Python/Python Scripts/NIDAQ ai-di-do continuous.md",
     "Widefield Setup/Instruments/Cameras/%attachments/Dhyana Output Trigger Parameters.png",
     "Widefield Setup/Instruments/Cameras/%attachments/Dhyana Interface.png",
     "Widefield Setup/Instruments/Cameras/%attachments/Dhyana CameraLink Driver Installation.png",
-    "Widefield Setup/Computers/Pupil Computer.md",
     "Widefield Setup/Instruments/Cameras/%attachments/Dhyana 400BSI V2 pic.png",
     "Widefield Setup/Instruments/Cameras/%attachments/Dhyana technical specifications.png",
     "Widefield Setup/%attachments/Pasted image 20240715094939.png",
