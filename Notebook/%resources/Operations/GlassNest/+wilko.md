@@ -4,6 +4,7 @@ LOG: 2024-06-12
 tags:
   - widefield
 author: jgronemeyer
+COMPLETE: true
 ---
 *wfield pipeline integration; analysis*
 

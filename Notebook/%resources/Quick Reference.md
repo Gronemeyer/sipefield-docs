@@ -26,12 +26,6 @@ Forum response:
 - `matlab.py`: Functions to run Matlab scripts.
 - `data.py`: Functions for data manipulation, visualization.
 - `main.py`: Main function to orchestrate the pipeline.
-
 # [[Current Setup.canvas|Current Setup]]
 
 [SEMANTIC VERSIONING GUIDELINES](https://semver.org/)
-
-# Take Snapshot in Matlab wfield
-1. Stop preview
-2. Start preview
-3. snapshot

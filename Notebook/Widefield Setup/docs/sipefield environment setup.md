@@ -6,7 +6,7 @@
 	- Follow the Tuscan camera [[Dhyana 400BSI V2#^5c9057|user guide]] for importing the driver files into the MicroManager program file folder noted above
 
 
-Installation of [[Widefield Setup/Python/Napari]]
+Installation of [[Napari 1]]
 
 Initialize `conda` environment named `sipefield` with `Python 3.10`
 `conda create -y -n sipefield -c conda-forge python=3.10`
@@ -21,6 +21,6 @@ update napari
 launch napari
 `napari` 
 
-Install [[Widefield Setup/Python/Napari#^293649|micromanager plugin]]
+Install [[Napari 1#^293649|micromanager plugin]]
 - On [[sipefield environment setup]] `pip install napari-micromanager`
 - `mmcore install` for [[MicroManager]] adaptors

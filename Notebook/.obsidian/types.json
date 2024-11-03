@@ -9,6 +9,7 @@
     "devices": "multitext",
     "software": "multitext",
     "docs": "multitext",
-    "relatives": "multitext"
+    "relatives": "multitext",
+    "COMPLETE": "checkbox"
   }
 }

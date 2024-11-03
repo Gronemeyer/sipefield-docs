@@ -3,16 +3,54 @@ github: https://github.com/pymmcore-plus
 relatives:
   - "[[Widefield Setup/Software/Napari|Napari]]"
   - "[[MicroManager]]"
-  - "[[Arduino]]"
-  - "[[Dhyana 400BSI V2]]"
   - "[[PsychoPy]]"
 docs:
   - "[[image-sc-forum]]"
+controls:
+  - "[[Arduino]]"
+  - "[[Dhyana 400BSI V2]]"
+  - "[[Thorlabs CS165 MU]]"
 ---
-![mm diagram](https://user-images.githubusercontent.com/1609449/202301602-00ba0fd8-df4f-4993-b0ad-8e3d1cefaf42.png)
-https://forum.microlist.org/t/belatedly-announcing-pymmcore-plus-an-ecosystem-of-pure-python-tools-for-running-experiments-with-micro-manager-core/2268
+[mm diagram](https://user-images.githubusercontent.com/1609449/202301602-00ba0fd8-df4f-4993-b0ad-8e3d1cefaf42.png)
+[Intro from creator](https://forum.microlist.org/t/belatedly-announcing-pymmcore-plus-an-ecosystem-of-pure-python-tools-for-running-experiments-with-micro-manager-core/2268)
 
-# Custom Acquisition Engine
+# Acquiring Data with pymmcore-plus
+
+## Hardware Triggered Sequence
+
+Having the computer "in-the-loop" for every event in an MDA sequence can add unwanted overhead that limits performance in rapid acquisition sequences. Because of this, some devices support _hardware triggering_. This means that the computer can tell the device to queue up and start a sequence of events, and the device will take care of executing the sequence without further input from the computer.
+
+Default acquisition engine in `pymmcore-plus` can opportunistically use hardware triggering whenever possible. For now, this behavior is off by default (in order to avoid unexpected behavior), but you can enable it by setting `CMMCorePlus.mda.engine.use_hardware_sequencing = True`:
+
+```python
+''' Enable hardware triggering for acquisition '''
+mmc.mda.engine.use_hardware_sequencing = True
+```
+
+## Create an MDASequence 
+The `useq.MDASequence` object allows you to declare a "plan" for each axis in your experiment (channels, time, z, etc...) and the order of iteration over the axes.
+
+```python
+import useq
+
+mda_sequence1 = useq.MDASequence(
+    time_plan={"interval": 2, "loops": 10},
+    z_plan={"range": 4, "step": 0.5},
+    channels=[
+        {"config": "blue", "exposure": 20},
+        {"config": "violet", "exposure": 20},
+    ]
+)
+
+# for a Movie recording, we only need time. 
+# We set interval = 0 to indicate to MicroManager that we want a Movie
+movie_sequence = useq.MDASequence(
+    time_plan={interval=0, loops=1000} #1000 frames at full FPS
+)
+
+```
+
+## Executing a Sequence
 To execute a sequence, you must:
 1. Create a `CMMCorePlus` instance (and probably load a configuration file)
 2. Pass an iterable of `useq.MDAEvent` objects to the `run_mda()` method.
@@ -26,63 +64,27 @@ from useq import MDAEvent
 
 # Create the core instance.
 mmc = CMMCorePlus.instance()  
-
+# load default configuration with demo camera
 mmc.loadSystemConfiguration()  
 
-# Create a super-simple sequence, with one event
-mda_sequence = [MDAEvent()] 
+# Create a super-simple sequence, with one useq.MDAEvent object
+mda_sequence = useq.MDASequence(
+    time_plan={interval=0, loops=1000} #1000 frames at full FPS
+)
 
 # Run it!
 mmc.run_mda(mda_sequence)
 ```
-
-# MDAEvent Object
-The `useq.MDAEvent` object is the basic building block of an experiment. It is a relatively simple dataclass that defines a single action to be performed. Some key attributes you might want to set are:
+### MDAEvent Objects
+The `useq.MDAEvent` object is the basic building block of an experiment. It is a relatively simple dataclass that defines a single action to be performed. Key attributes:
 
 - **exposure** (`float`): The exposure time (in milliseconds) to use for this event.
 - **channel** (`str | dict[str, str]`): The configuration group to use. If a `dict`, it should have two keys: `group` and `config` (the configuration group and preset, respectively). If a `str`, it is assumed to be the name of a preset in the `Channel` group.
 - **x_pos**, **y_pos**, **z_pos** (`float`): An `x`, `y`, and `z` stage position to use for this event.
 - **min_start_time** (`float`): The minimum time to wait before starting this event.(in seconds, relative to the start of the experiment)
-
-```python
-snap_a_dapi = MDAEvent(channel="Preset-Channel-From-Micro-Manager", exposure=100, x_pos=1100, y_pos=1240)
-```
-
-# MDASequence Class
-allows you to declare a "plan" for each axis in your experiment (channels, time, z, etc...) along with the order in which the axes should be iterated.
-
-You can use `useq` objects rather than `dicts` for all of these fields. This has the advantage of providing type-checking and auto-completion in your IDE.
-
-The following two sequences are equivalent:
-
-```python
-import useq
-
-mda_sequence1 = useq.MDASequence(
-    time_plan={"interval": 2, "loops": 10},
-    z_plan={"range": 4, "step": 0.5},
-    channels=[
-        {"config": "DAPI", "exposure": 50},
-        {"config": "FITC", "exposure": 80},
-    ]
-)
-
-mda_sequence2 = useq.MDASequence(
-    time_plan=useq.TIntervalLoops(interval=2, loops=10),
-    z_plan=useq.ZRangeAround(range=4, step=0.5),
-    channels=[
-        useq.Channel(config="DAPI", exposure=50),
-        useq.Channel(config="FITC", exposure=80),
-    ]
-)
-
-assert mda_sequence1 == mda_sequence2
-```
-
 ## Run MDA sequence
-`MDASequence` **_is_** an [iterable](https://docs.python.org/3/glossary.html#term-iterable) of `MDAEvent`... which is exactly what we need to pass to the [`run_mda()`](https://pymmcore-plus.github.io/pymmcore-plus/api/cmmcoreplus/#pymmcore_plus.core._mmcore_plus.CMMCorePlus.run_mda) method.
+`MDASequence` **_is_** an [iterable](https://docs.python.org/3/glossary.html#term-iterable) of `MDAEvent` passed to the `run_mda()` command
 ```python
-# Run it!
 mmc.run_mda(mda_sequence)
 ```
 
@@ -110,25 +112,6 @@ mda_sequence = useq.MDASequence(
 )
 
 mmc.run_mda(mda_sequence)
-```
-
-# Hardware Triggered Sequence
-
-Having the computer "in-the-loop" for every event in an MDA sequence can add unwanted overhead that limits performance in rapid acquisition sequences. Because of this, some devices support _hardware triggering_. This means that the computer can tell the device to queue up and start a sequence of events, and the device will take care of executing the sequence without further input from the computer.
-
-Default acquisition engine in `pymmcore-plus` can opportunistically use hardware triggering whenever possible. For now, this behavior is off by default (in order to avoid unexpected behavior), but you can enable it by setting `CMMCorePlus.mda.engine.use_hardware_sequencing = True`:
-
-```python
-'''
-Enable hardware triggering for acquisition
-'''
-from pymmcore_plus import CMMCorePlus
-
-mmc = CMMCorePlus.instance()
-mmc.loadSystemConfiguration()
-
-# enable hardware triggering
-mmc.mda.engine.use_hardware_sequencing = True
 ```
 
 # [Event-Driven Acquisition](https://pymmcore-plus.github.io/pymmcore-plus/guides/event_driven_acquisition/)

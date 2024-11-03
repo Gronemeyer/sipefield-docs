@@ -7,7 +7,7 @@ author: jgronemeyer
 ---
 GlassNest.tango (PySpace)
 
-Goals:
+# Goals:
 
 - Three computers can communicate 
 - One Parent (master) system

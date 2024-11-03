@@ -1,8 +1,13 @@
 ---
 docs:
   - "[[Hardware-triggering with Micro-Manager a case study]]"
+  - "[[image-sc-forum]]"
 software:
   - "[[MicroManager]]"
+controls:
+  - "[[LEDD1B T-Cube]]"
+  - "[[Dhyana 400BSI V2]]"
+author:
 ---
 [[MicroManager#^cf4e08|Guide to Setup Arduino in Micromanager]]
 

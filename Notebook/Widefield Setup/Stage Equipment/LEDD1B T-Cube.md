@@ -1,3 +1,9 @@
+---
+devices:
+  - "[[Arduino]]"
+  - "[[XYZ Stage Control]]"
+  - "[[Dhyana 400BSI V2]]"
+---
 
 ![[47j062ih.bmp]]
 
