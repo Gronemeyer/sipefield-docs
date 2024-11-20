@@ -11,6 +11,8 @@ controls:
   - "[[Dhyana 400BSI V2]]"
   - "[[Thorlabs CS165 MU]]"
 ---
+VERSION [v0.10.2] at 11/05/24
+
 [mm diagram](https://user-images.githubusercontent.com/1609449/202301602-00ba0fd8-df4f-4993-b0ad-8e3d1cefaf42.png)
 [Intro from creator](https://forum.microlist.org/t/belatedly-announcing-pymmcore-plus-an-ecosystem-of-pure-python-tools-for-running-experiments-with-micro-manager-core/2268)
 
